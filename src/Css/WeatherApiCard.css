@@ -1,0 +1,18 @@
+.card{
+  border: none;
+  background: linear-gradient(rgb(18, 177, 250), rgb(0, 0, 175)) fixed;
+  margin-bottom: 50px;
+}
+
+.card-img-top{
+  border: none; 
+  margin-bottom: 50px;
+}
+
+#min{
+  color: rgb(202, 14, 14);
+}
+
+#max{
+  color:aqua;
+}

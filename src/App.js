@@ -1,25 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import CitySelector from "./Component/CitySelector";
+import UseFetch from "./Hook/UseFetch";
+import WeatherList from "./Component/WeatherList";
+// import TopList from "./Component/TopList";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Container } from "react-bootstrap";
+import { API_BASE_URL, API_KEY } from "./Apis/config";
+import "./App.css";
+// import TopCard from "./Component/TopCard";
 
-function App() {
+
+const App = () => {
+  const { data, setUrl } = UseFetch();
+  console.log(data)
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+
+    <Container className="App">
+      <CitySelector
+        onSearch={(city) =>
+          setUrl(
+            `${API_BASE_URL}data/2.5/forecast?q=${city}&cnt=5&appid=${API_KEY}`
+          )
+        }
+      />
+      <Routes>
+      <Route exact path="/" element={data && <WeatherList  weathers={data.list} />} />
+      </Routes>
+    </Container>
+    </Router>
+    
   );
-}
+};
 
 export default App;
