@@ -11,7 +11,7 @@ const TopList = (climates) => {
           <Col key={dt}>
             <TopCard
               city={city.name}
-              // temp={main.temp}
+              temp={main.temp}
               humidity={main.humidity}
               wind={wind.speed}
               dt={dt * 1000}

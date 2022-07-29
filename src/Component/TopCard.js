@@ -1,9 +1,9 @@
 import React from "react";
 import { Container } from "react-bootstrap";
+// import { API_BASE_URL, API_KEY } from "../Apis/config";
 import  "../Css/TopCard.css"
 
 const TopCard = ({dt, humidity, temp, wind, icon, city}) => {
-
 
   return (
     <Container>
